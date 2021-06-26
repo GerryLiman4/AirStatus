@@ -1,73 +1,91 @@
-  <!DOCTYPE html>
-  <html lang="en">
 
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
 
-    <!-- PAKE CSS LEAFLET MAP -->>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin="" />
-
-    <!-- PAKE JS LEAFLET MAP -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""></script>
-
-    <title>Persebaran Data Gempa Bumi Indonesia 2015-2019</title>
+    <title>Jakarta AQI</title>
   </head>
-
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html" style="font-size: 16px">Persebaran Data Gempa Bumi Indonesia
-          2015-2019</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="index.html" style="font-size: 16px"
+          >Jakarta AQI            </a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="about.html">Tentang</a>
+              <a class="nav-link active" aria-current="page" href="udara.html"
+                >Air Quality Index</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="widget.html">Pelajari Gempa</a>
+              <a class="nav-link" aria-current="page" href="polusi.html"
+                >Air Infos</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="database.html">Database</a>
+              <a class="nav-link" aria-current="page" href="aboutus.html"
+                >About Us</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="member.html">Kelompok</a>
+              <a class="nav-link" aria-current="page" href="member.html"
+                >Test</a
+              >
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    
-
     <div class="container mt-5 text-center">
-      <h1 class="display-6">Kualitas udara di Jakarta</h1>
-      <p class="lead mt-5">
-        Kualitas udara di jakarta sangat lah buruk. Didapati dari baru baru ini, kita melihat.
-      </p>
-      <div id="result"></div>
-      <div id="avg"></div>
+      <h1 class="display-6">Kualitas udara di Jakarta </h1> <br>
+        <div class="row">
+         <div class="col-md-6">
+           <div id="result"></div>
+         </div>
+          <div class="col-md-6">
+            <p class="lead mt-5">
+           Selalu jagaa yuk semangat!!!
+            </p>
+          </div>
+          <br>
+        </div>
+        <br>
+       
     </div>
    
+   <div class="p-3 mb-2 bg-light text-gray-dark">
+    <div id="avg"></div>
+    </div>
     
     <script type="text/javascript">
     var apiUrl = 'https://api.waqi.info/feed/jakarta/?token=d2979932369608cb248b3329736a6d480b3ff31c';
     fetch(apiUrl).then(Response => { return Response.json();})
     .then(data => {
-        document.getElementById("result").innerHTML +="Aqi sekarang adalah " + data.data.aqi;
+        document.getElementById("result").innerHTML +="Aqi sekarang adalah <h2>" + data.data.aqi +"</h2>";
         console.log(data)
     })
     </script>
@@ -77,141 +95,29 @@
   fetch(url).then(Response => { return Response.json();})
   .then(data => {
       data.data.forecast.daily.o3.forEach(element =>{
-        let avg = element.avg;
+        document.getElementById("avg").innerHTML +="Rata-rata o3 adalah " + element.avg +"<br> ";
         console.log(element)
       });
-    document.getElementById("avg").innerHTML +="Rata-rata o3 adalah <br>";
+    
       console.log(data)
   })
     </script>
-
-      
-<div class="container">
-      <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Free</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-          </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Pro</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-              <li>Priority email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-          </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Enterprise</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-              <li>Phone and email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-          </div>
-        </div>
-      </div>
+    
+    <!--
+    <div class="row">
+  <div class="col-md-6">
+  Yuk jaga Kesehatan yuk, karena kalau bukan kita, siapa lagi ?
+  </div>
+  <div class="col-md-6">
+  Selalu jagaa yuk semangat!!!
+  </div>
+  </div>-->
 
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"></script>
-
-    
-    
-      
-
-
-
-    
-
+      crossorigin="anonymous"
+    ></script>
   </body>
-
-  </html>
-
-  <!--
-  <script type="text/javascript">
-    //nunjuk mapid dari div diatas
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-    // membuat layer baru supaya map ny gak blank pake mapbox style
-    
-    //layer pake mapbox
-    
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaXhpcnlyIiwiYSI6ImNrcWN1bWg0MjAyNG8ydnF2c2RjeXRweDMifQ.AtVx8vUWuVIoct1P7yE0kw', {
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 18,
-      id: 'mapbox/streets-v11',
-      tileSize: 512,
-      zoomOffset: -1,
-      accessToken: 'your.mapbox.access.token'
-    }).addTo(mymap);
-    
-    
-
-    L.tileLayer('https://tiles.aqicn.org/tiles/usepa-aqi/{z}/{x}/{y}.png?token=434fc6630336ffcd47f950e20f91cb60a3c75603', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'your.mapbox.access.token'
-    }).addTo(mymap);
-
-
-
-    // adding marker sesuai titik
-    L.marker([51.5, -0.09]).addTo(mymap)
-      .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-
-    /*  
-    L.circle([51.508, -0.11], 500, {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5
-    }).addTo(mymap).bindPopup("I am a circle.");
-
-    L.polygon([
-      [51.509, -0.08],
-      [51.503, -0.06],
-      [51.51, -0.047]
-    ]).addTo(mymap).bindPopup("I am a polygon.");
-    */
-
-    var popup = L.popup();
-
-    function onMapClick(e) {
-      popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-    }
-
-    mymap.on('click', onMapClick);
-
-
-  </script>
+</html>
