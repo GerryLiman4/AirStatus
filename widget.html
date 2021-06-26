@@ -63,6 +63,19 @@
     };})(window,document,'script','_aqiFeed');
     </script>
 
+<span id="city-aqi-container">
+
+</span>
+<script type="text/javascript">
+_aqiFeed(
+  {container:"city-aqi-container",city:"beijing"}
+  );
+  _aqiFeed({container:"city-aqi-container",city:"beijing"});
+  _aqiFeed({display:"%cityname#NBSP#AQI#NBSP#is#NBSP#%aqi<br><small>on#NBSP#%date</small>",
+  container:"city-aqi-container-display",city:"beijing"});
+</script>
+
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
@@ -70,18 +83,7 @@
     crossorigin="anonymous"></script>
 
   
-    <span id="city-aqi-container">
-
-    </span>
-    <script type="text/javascript">
-    _aqiFeed(
-      {container:"city-aqi-container",city:"beijing"}
-      );
-      _aqiFeed({container:"city-aqi-container",city:"beijing"});
-      _aqiFeed({display:"%cityname#NBSP#AQI#NBSP#is#NBSP#%aqi<br><small>on#NBSP#%date</small>",
-      container:"city-aqi-container-display",city:"beijing"});
-    </script>
-
+   
     
 
 
