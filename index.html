@@ -91,7 +91,7 @@
 
     // adding marker sesuai titik
     L.marker([51.5, -0.09]).addTo(mymap)
-      .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+      .bindPopup("<b>Hello world!</b><br />I am a popup. <img src ="b6.jpg" width="500" height="600">").openPopup();
 
     /*  
     L.circle([51.508, -0.11], 500, {
@@ -112,7 +112,7 @@
     function onMapClick(e) {
       popup
         .setLatLng(e.latlng)
-        .setContent("<h1>You clicked the map at </h1> dsa" + e.latlng.toString() + "mmm <img src ="b6.jpg" alt="Girl in a jacket">" )
+        .setContent("<h1>You clicked the map at </h1> dsa" + e.latlng.toString() + "mmm as" )
         .openOn(mymap);
     }
 
