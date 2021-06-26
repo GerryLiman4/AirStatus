@@ -69,6 +69,21 @@
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
 
+  
+    <span id="city-aqi-container">
+
+    </span>
+    <script type="text/javascript">
+    _aqiFeed(
+      {container:"city-aqi-container",city:"beijing"}
+      );
+      _aqiFeed({container:"city-aqi-container",city:"beijing"});
+      _aqiFeed({display:"%cityname#NBSP#AQI#NBSP#is#NBSP#%aqi<br><small>on#NBSP#%date</small>",
+      container:"city-aqi-container-display",city:"beijing"});
+    </script>
+
+    
+
 
 
    
