@@ -19,15 +19,18 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
-<style>
+
+  <style>
     #stacked{
-      background-color: yellow;
-       z-index: 3;
-      position: absolute;
-      bottom: 0;
+      background-color: transparent;
+      z-index: 4;
+      position: relative;
+      top:0;
+     
     }
   </style>
   <title>Persebaran Data Gempa Bumi Indonesia 2015-2019</title>
+  
 </head>
 
 <body>
@@ -58,9 +61,21 @@
     </div>
   </nav>
 
-  <div style="padding: 0px">
+  <div style="padding: 0px" >
     <!--90vh-->
-    <div id="mapid" style="width: 100%; height:90vh; z-index: 1;"></div>
+    <div id="mapid" style="width: 100%; height:90vh; z-index:1;position:relative">
+      
+    </div>
+    <div class = "container" id="stacked">
+
+        <div class = "row">
+          <div class="col-sm-4">.col-sm-4</div>
+          <div class="col-sm-4">.col-sm-4</div>
+          <div class="col-sm-4">.col-sm-4</div>
+        </div>
+    
+    </div>
+
   </div>
 
   <script type="text/javascript">
@@ -92,7 +107,7 @@
 
 
     var photoImg = '<img src="https://static.pexels.com/photos/189349/pexels-photo-189349.jpeg" height="150px" width="150px"/>';
-
+    
     // adding marker sesuai titik
     L.marker([51.5, -0.09]).addTo(mymap)
       .bindPopup("<b>Hello world!</b><br />I am a popup."  + "<br>" + photoImg).openPopup();
@@ -131,19 +146,14 @@
 
 
 
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"></script>
 
-<div class = "container" id="stacked">
 
-    <div class = "row">
-      <div class="col-sm-4">.col-sm-4</div>
-      <div class="col-sm-4">.col-sm-4</div>
-      <div class="col-sm-4">.col-sm-4</div>
-    </div>
-
-</div>
 
 <!--
   #NBSP##EOL#
